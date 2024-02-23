@@ -5,6 +5,7 @@ Tính năng: Đăng ký tài khoản
 
   # neu muon chay truc tiep file feature ma co report cucumber
   # thi chon modify run configtion, tai phan argument  them --plugin json:target/site/cucumber.json
+  @kichban1
   Kịch bản: tao user
   Cho truy cập vào trang "https://demo.guru99.com/v4/"
   Và ấn vào trang tạo tài khoản

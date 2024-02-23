@@ -1,9 +1,17 @@
 package stepdefinitions;
 
+import com.epam.reportportal.cucumber.AbstractReporter;
+import com.epam.reportportal.cucumber.ScenarioReporter;
+import com.epam.reportportal.service.ReportPortal;
+import com.epam.reportportal.service.ReportPortalClient;
+import com.epam.reportportal.utils.MemoizingSupplier;
+import com.epam.ta.reportportal.ws.model.StartTestItemRQ;
+import com.google.common.base.Suppliers;
 import commons.Hooks;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import io.reactivex.Maybe;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.Reportable;
@@ -14,9 +22,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.function.Supplier;
 
-public class Setup {
+public class Setup  {
 
     public static WebDriver driver;
 
@@ -76,4 +86,6 @@ public class Setup {
             testReport();
         }));
     }
+
+
 }

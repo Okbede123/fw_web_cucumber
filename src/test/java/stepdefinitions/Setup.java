@@ -3,11 +3,14 @@ package stepdefinitions;
 import commons.Hooks;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.Reportable;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -15,16 +18,29 @@ import java.util.List;
 
 public class Setup {
 
+    public static WebDriver driver;
+
     @After
     public void after(Scenario scenario){
         System.out.println("run vao teardown");
-        if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) Hooks.getDriver()).getScreenshotAs(OutputType.BYTES);
-            System.out.println("run vao fail");
-            scenario.embed(screenshot, "image/png");
+        if(Hooks.getDriver() != null){
+            if (scenario.isFailed()) {
+                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                System.out.println("run vao fail");
+                scenario.embed(screenshot, "image/png");
+            }
+            Hooks.getDriver().quit();
+            Hooks.setDriver(null);
+            after();
         }
-        Hooks.getDriver().quit();
-        after();
+
+    }
+
+    @Before
+    public void before(){
+        System.out.println("run before");
+        driver = Hooks.openAndQuitBrowserNotUrl();
+
     }
 
     public void testReport() {

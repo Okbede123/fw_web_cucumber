@@ -19,7 +19,7 @@ public class RegisterPageSteps {
 
     public  RegisterPageSteps(TestContext testContext){
         this.testContext = testContext;
-        driver = Hooks.openAndQuitBrowserNotUrl();
+        driver = Setup.driver;
     }
 
     @Khi("^điền email vào ô textbox$")

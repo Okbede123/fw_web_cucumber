@@ -19,7 +19,7 @@ public class HomePageSteps {
 
     public HomePageSteps(TestContext testContext){
         this.testContext = testContext;
-        driver = Hooks.openAndQuitBrowserNotUrl();
+        driver = Setup.driver;
     }
 
     @Thì("^truy cập được vào trang homepage$")

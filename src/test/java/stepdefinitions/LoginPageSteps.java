@@ -6,6 +6,7 @@ import commons.TestContext;
 import cucumber.api.java.vi.Cho;
 import cucumber.api.java.vi.Và;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pageobject.HomePageObject;
 import pageobject.LoginPageObject;
 import pageobject.RegisterPageObject;
@@ -21,7 +22,7 @@ public class LoginPageSteps {
 
     public LoginPageSteps(TestContext testContext){
         this.testContext = testContext;
-        driver = Hooks.openAndQuitBrowserNotUrl();
+        driver = Hooks.getDriver();
     }
 
     @Cho("^truy cập vào trang \"([^\"]*)\"$")

@@ -104,9 +104,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <parallel>classes</parallel>
-                    <threadCount>3</threadCount>
-                    <reuserForks>false</reuserForks>
+<!--                    <parallel>methods</parallel>-->
+<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
+<!--                    <threadCount>3</threadCount>-->
+<!--                    <reuserForks>false</reuserForks>-->
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>**/*TestRunner.java</include>

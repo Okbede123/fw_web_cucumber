@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import com.epam.reportportal.service.ReportPortal;
 import commons.Hooks;
 import commons.PageGeneralManager;
 import commons.TestContext;
@@ -10,6 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pageobject.HomePageObject;
 import pageobject.LoginPageObject;
 import pageobject.RegisterPageObject;
+
+import java.io.File;
+import java.util.Date;
 
 public class LoginPageSteps {
     WebDriver driver;
@@ -29,6 +33,7 @@ public class LoginPageSteps {
     public void truyCậpVàoTrang(String arg0)  {
         loginPageObject = PageGeneralManager.openLoginPage(driver);
         loginPageObject.goToUrl(arg0);
+        ReportPortal.emitLog("test","info",new Date(),new File("C:\\Users\\Admin\\Downloads\\huongdan.png"));
     }
 
     @Và("^ấn vào trang tạo tài khoản$")
